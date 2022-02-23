@@ -1,0 +1,8 @@
+listt = [('Tuple1', 121), ('Tuple2', 125), ('Tuple1', 135), ('Tuple4', 478)]
+for i in range(len(listt)):
+    tmp = listt[i+1:len(listt)]
+    for k in tmp:
+        if k[0] == listt[i][0]:
+            listt.remove(k)
+print(listt)            
+        
