@@ -1,0 +1,27 @@
+s = 2
+answer = []
+step = 2
+k = 1
+while s <= 20:
+    answer.append(s)
+    answer.append(':')
+    tmp = []
+    k = 1
+    add = s
+    while k <= 10:
+        add = s * k
+        k += 1
+        tmp.append(add)
+    answer.append(tmp)
+    s += 1
+with open('/home/ayush/assignment3/multi.txt', 'w') as f:
+    for line in answer:
+        if type(line) != list:
+          line = str(line)
+          f.write(line)
+        else:
+            for k in line:
+             k = str(k)   
+             f.write(k)
+             f.write(',')
+            f.write('\n')    
