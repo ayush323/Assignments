@@ -1,0 +1,22 @@
+from datetime import datetime, date
+class date_operation:
+    def __init__(self):
+        pass
+
+    def get_current_datetime(self):
+        today = datetime.now()
+        print("today's date and time  is ", today)
+        
+    def birth_date(self, year, month, days):
+        birth_date = date(year, month, days)
+        print(birth_date)
+     
+    def get_age(self, year, month, days):
+        today = date.today()
+        curr_year = today.year - year
+        curr_month = abs(today.month - month)
+        curr_days = abs(today.day - days)
+        print(curr_year, "years",curr_month,"months",curr_days, "days")
+        time_to_take_fifty = 50 - curr_year
+        print("time_to_take_fifty", time_to_take_fifty,"year")
+
