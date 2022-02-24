@@ -13,14 +13,20 @@ class stack:
         print(self.stackk)
 
 new_stack = stack()
-new_stack.push(1)
-new_stack.push(2)
-new_stack.push(3)
-new_stack.push(4)
-new_stack.push(5)
+n = int(input("enter the number of values you want to add in the stack"))
+while n > 0:
+   num = int(input("enter the value"))
+   new_stack.push(num)
+   n -= 1
+
 print("stack before pop operation = ")
 new_stack.display()
-k = new_stack.pop()
-k1 = new_stack.pop()
+while True:
+    k = int(input("press 1 if you want to perform pop operation else press 0"))
+    if k == 1:
+        new_stack.pop()
+    else:
+        break
+        
 print("stack after two pop operation = ")
 new_stack.display()

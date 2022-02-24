@@ -12,5 +12,5 @@ def calc_evennumSum(func):
     return inner
 
 cal_sum = calc_evennumSum(cal_sum)
-new = [1,2,3,4]
+new = list(map(int, input("enter the space separated list").split()))
 cal_sum(new)

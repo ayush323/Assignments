@@ -31,10 +31,14 @@ class triangle(Shape):
 
     def area(self):
         return 1/2 * self.h * self.b
-
-r = rectangle(3, 5)
+h = int(input("enter the height of rectangle = "))
+w = int(input("enter the width of the rectangle = "))
+r = rectangle(h, w)
 print("area of rectangle = ", r.area())
-s = square(8)
+side = int(input("enter the side of the square = "))
+s = square(side)
 print("area of square=", s.area())
-t = triangle(5, 7)
+base = int(input("enter the base of the triangle = "))
+height = int(input("enter the height of the triangle = "))
+t = triangle(base, height)
 print("area of triangle = ", t.area())

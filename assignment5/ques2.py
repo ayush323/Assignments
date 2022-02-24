@@ -39,9 +39,23 @@ class sedan(Car):
         else:
             dis_value = (self.regularPrice * 10) / 100
             return self.regularPrice - dis_value
-truck = Truck(2050, 270, 130000, "black")
+weight = int(input("entet the wieght of the truck= "))
+speed = int(input("enter the speed of the truck= "))
+price = int(input("enter the price of the truck= "))
+color = input("enter the color of the truck= ")
+truck = Truck(weight, speed, price, color)
 print("final price of truck = ", truck.doublegetSalePrice())
-ford = Ford(500, 240, 1000000, "red")
+manufacture_discount = int(input("entet the manufacture discount  of the ford= "))
+speed =	int(input("enter the speed of the ford = "))
+price =	int(input("enter the price of the ford= "))
+color =	input("enter the color of the ford= ")
+
+ford = Ford(manufacture_discount, speed, price, color)
 print("final price of ford = ",  ford.doublegetSalePrice())
-sedan = sedan(25, 250, 1200000, "black")
+length = int(input("entet the length of the sedan = "))
+speed =	int(input("enter the speed of the sedan = "))
+price =	int(input("enter the price of the sedan = "))
+color =	input("enter the color of the sedan = ")
+
+sedan = sedan(length, speed, price, color)
 print("final price of sedan = ", sedan.doublegetSalePrice())

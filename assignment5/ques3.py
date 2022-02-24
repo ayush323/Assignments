@@ -67,12 +67,27 @@ class Linked_list:
                 
 
 linked_list = Linked_list()
-linked_list.add_at_end(3)
-linked_list.add_at_end(4)
-linked_list.add_at_end(5)
-linked_list.add_at_end(6)
-linked_list.add_at_end(7)
+n = int(input("enter how many number you want to add in the linked list"))
+while n > 0:
+  num = int(input("enter the number = "))  
+  linked_list.add_at_end(num)
+  n -= 1
+
 linked_list.display()
+value = int(input("enter the value which you want to add between two value"))
+n1 = int(input("enter the first value after  which you want to add the value"))
+n2 = int(input("enter the second value before which you want to add the value"))
+linked_list.adding_between_twoNumber(n1, n2, value)
+linked_list.display()
+element = int(input("enter the number you want to delete = "))
+linked_list.delete_element(element)
+linked_list.display()
+s_value = int(input("enter the value which you want to search = "))
+linked_list.search_element(s_value)
+print("linked list after reverse")
+linked_list.reverse_linkList()
+linked_list.display()
+'''
 linked_list.adding_between_twoNumber(4, 5, 8)
 linked_list.display()
 linked_list.delete_element(5)
@@ -81,3 +96,4 @@ linked_list.search_element(7)
 linked_list.display()
 linked_list.reverse_linkList()
 linked_list.display()
+'''
