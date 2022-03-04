@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from login.views import HelloView, otp_verification, User
 from rest_framework.authtoken import views
-
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView,TokenVerifyView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', HelloView.as_view()),
     path('otp/verification', otp_verification.as_view()),
-    path('user_information/', User.as_view()),
-    path('api-token-auth/', views.obtain_auth_token, name='api-token-auth')
+    path('UserData/', User.as_view()),
+    path('Login/',TokenObtainPairView.as_view(),name = 'token_obtain_pair'),
+    path('refreshtoken/',TokenRefreshView.as_view(),name = 'token_refresh'),
+    path('verifytoken/',TokenVerifyView.as_view(), name= 'token_verify')
 ]
