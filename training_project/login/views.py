@@ -24,7 +24,7 @@ class otp_verification(APIView):
         data = request.data
         otp = random.randint(1000,9000)
         account_sid = 'ACb97a40ece94a39ad0b9897d8e9b2ca4f'
-        auth_token = 'fa585b17ef8bbd74a31ef2ccc362f19b'
+        auth_token = '61e6a12d18fe7f666e8e90580e82a4ac'
         client = Client(account_sid, auth_token)
         message = client.messages \
                 .create(

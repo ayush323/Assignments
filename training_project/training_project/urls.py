@@ -13,10 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from login.views import HelloView, otp_verification, User
+from blog.views import Post, PostDetail, Authors, AuthorDetails, TagList, StartingPage, Readlater
 from rest_framework.authtoken import views
+from django.conf.urls.static import static
+from django.conf import settings
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView,TokenVerifyView
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +28,13 @@ urlpatterns = [
     path('otp/verification', otp_verification.as_view()),
     path('UserData/', User.as_view()),
     path('Login/',TokenObtainPairView.as_view(),name = 'token_obtain_pair'),
+    path('PostDetail/',PostDetail.as_view(), name= "post-detail-page"),
+    path('Posts/', Post.as_view(), name= "post-page"),
+    path('AuthorList/',Authors.as_view()),
+    path('AuthorDetails/', AuthorDetails.as_view()),
+    path('TagList', TagList.as_view()),
+    path('read-later',Readlater.as_view(),name = 'read_later'),
+    path("",StartingPage.as_view(),name="starting-page"),
     path('refreshtoken/',TokenRefreshView.as_view(),name = 'token_refresh'),
     path('verifytoken/',TokenVerifyView.as_view(), name= 'token_verify')
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
