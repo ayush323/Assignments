@@ -135,48 +135,7 @@ class TagList(APIView):
         
 
 
-        return Response(obj.values(), HTTP_200_OK)
-
-class StartingPage(ListView):
-    template_name = 'blog/index.html'
-    model = post
-    ordering = ['-date']
-    context_object_name = 'posts'
-    def get_queryset(self):
-        query_set =  super().get_queryset()
-        data = query_set[:3]
-        return data        
-
-class Readlater(View):
-    def get(self, request):
-        stored_posts = request.session.get('stored_posts')
-        context = {}
-        if stored_posts is None or len(stored_posts) == 0:
-            context['post'] = []
-            context['has_post'] = False
-        else:
-            posts = post.objects.filter(id__in = stored_posts)
-            context['post'] = posts
-            context['has_post'] = True
-        return render(request, 'blog/read_later.html', context)        
-    def post(self, request):
-        stored_posts = request.session.get('stored_posts')
-        if stored_posts is None:
-            stored_posts = []
-        
-        post_id = int(request.POST['post_id'])
-
-
-        if post_id not in stored_posts:
-              stored_posts.append(post_id)
-           
-        else:
-              
-            stored_posts.remove(post_id)  
-        request.session['stored_posts'] = stored_posts     
-        return HttpResponseRedirect('/')       
-
-
+    
 
 
 
