@@ -10,6 +10,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.views.generic import ListView , DetailView
 from django.views import View
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 class Post(APIView):
     authentication_classes = [JWTAuthentication]
@@ -17,6 +18,9 @@ class Post(APIView):
     
     def get(self, request):
         obj = post.objects.all()
+
+        data  = request.GET
+        page_number = data["page_number"]
         ans = []
         resp = {}
         for ob in obj:
@@ -31,10 +35,12 @@ class Post(APIView):
                  tmp = {}
             resp["tags"] = tags     
             ans.append(resp)
-            resp = {}      
-        #resp = obj.values()
+            resp = {}
+        paginator = Paginator(ans, 2)    
+        page_obj = paginator.get_page(page_number)      
+        PagesData = []
         
-        return Response(ans, status = HTTP_200_OK)
+        return Response(page_obj.object_list, status = HTTP_200_OK)
 
     def post(self, request):
         data = request.data
